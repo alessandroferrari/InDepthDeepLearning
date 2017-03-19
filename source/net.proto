@@ -1,0 +1,61 @@
+
+message NetParams {
+    repeated LayerParams layer = 1;
+}
+
+message TensorParams {
+    repeated int32 shape = 1;
+    repeated double weights = 2;
+    repeated double bias = 3;
+}
+
+message LayerParams {
+    enum LayerType {
+        FULLY_CONNECTED = 1;
+        RELU = 2;
+        SIGMOID = 3;
+        CONVOLUTIONAL = 4;
+        SOFTMAX_LOSS = 5;
+        CROSSENTROPY_LOSS = 6;
+        POOLING = 7;
+    }
+    
+    required string name = 1;
+    required string bottom = 2;
+    required string top = 3;
+    
+    required LayerType type = 4;
+    repeated TensorParams weights = 5;
+    
+    optional FullyConnectedParams fully_connected_params = 6;
+    optional ConvolutionalParams convolutional_params = 7;
+    optional PoolingParams pooling_params = 8;
+    optional SoftmaxParams softmax_params = 9;
+    optional CrossEntropyParams cross_entropy_params = 10;
+}
+
+message FullyConnectedParams {
+    required int32 output = 1;
+}
+
+message ConvolutionalParams {
+    required int32 kernel_size = 1;
+    required int32 stride = 2;
+    required int32 features_maps = 3;
+}
+
+message PoolingParams {
+    enum PoolingType {
+        MAX = 1;
+        AVG = 2;
+    }
+    required PoolingType type = 1;
+}
+
+message SoftmaxParams {
+    required int32 output = 1;
+}
+
+message CrossEntropyParams {
+    required int32 output = 1;
+}
