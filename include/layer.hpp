@@ -15,14 +15,14 @@
 #include "blob.hpp"
 #include "proto/net.pb.h"
 
+template <typename T>
 class Layer {
 
 public:
-	Layer(LayerParams params);
+	Layer(const LayerParams& params);
 
 private:
-	std::vector<Blob> blobs;
-
+	std::vector<Blob<T> > blobs;
 };
 
 

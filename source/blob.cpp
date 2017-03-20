@@ -11,9 +11,6 @@
 #include <array>
 #include <memory>
 #include <algorithm>
-#include <numeric>
-
-using std::accumulate;
 using std::shared_ptr;
 using std::array;
 
