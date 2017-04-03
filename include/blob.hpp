@@ -8,6 +8,7 @@
 #ifndef BLOB_HPP_
 #define BLOB_HPP_
 
+#include <map>
 #include <vector>
 #include <memory>
 #include <array>
@@ -63,6 +64,9 @@ private:
 	std::string name;
 };
 
+template <typename T>
+using blobs_vector = std::vector<std::shared_ptr<Blob<T> > >;
 
-
+template <typename T>
+using blobs_map = std::map<std::string, std::shared_ptr<Blob<T> > >;
 #endif /* BLOB_HPP_ */

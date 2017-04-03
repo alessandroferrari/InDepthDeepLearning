@@ -21,8 +21,8 @@ message LayerParams {
     }
     
     required string name = 1;
-    required string bottom = 2;
-    required string top = 3;
+    repeated string bottom = 2;
+    repeated string top = 3;
     
     required LayerType type = 4;
     repeated TensorParams weights = 5;
